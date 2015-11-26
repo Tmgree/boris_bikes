@@ -3,7 +3,11 @@ require 'docking_station'
 describe DockingStation do
 it {is_expected.to respond_to :release_bike}
 
-
+it "should get a bike and expect the bike to be working" do
+  subject.dock(Bike.new)
+  bike = subject.release_bike
+  expect(bike).to be_working
+end
 
 it {is_expected.to respond_to(:dock).with(1).argument}
 
@@ -64,5 +68,11 @@ it 'error too many bikes docked' do
 end
 
 end
+
+it "it can be reported broken" do
+
+end
+
+
 
 end

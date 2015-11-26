@@ -67,9 +67,9 @@ it 'error too many bikes docked' do
   expect{subject.dock(Bike.new)}.to raise_error("error full")
 end
 
-end
 
-it "it can be reported broken" do
+
+
 
 end
 

@@ -37,15 +37,12 @@ expect{ station.dock Bike.new }.to raise_error 'error full'
 
 end
 
-describe 'initialization' do
-  subject { DockingStation.new }
-  let(:bike) { Bike.new }
-  it 'defaults capacity' do
-    DockingStation::DEFAULT_CAPACITY.times do
-      subject.dock(bike)
-    end
-    expect{ subject.dock(bike) }.to raise_error 'error full'
-  end
+it "if no capacity is put in ---> default capacity" do
+
+station=DockingStation.new
+DockingStation::DEFAULT_CAPACITY.times {station.dock Bike.new}
+expect {station.dock Bike.new}.to raise_error 'error full'
+
 end
 
 describe '#release_bike' do
